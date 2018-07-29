@@ -5,7 +5,7 @@
     var myName = false;
 
     //建立websocket连接
-    socket = io.connect('http://47.95.209.24:3000');
+    socket = io.connect('http://localhost:3000');
     //收到server的连接确认
     socket.on('open',function(){
         status.text('请输入用户名:');
@@ -16,9 +16,9 @@
         var p = '';
         if (json.type === 'welcome'){
             if(myName==json.text) status.text(myName + ': ').css('color', json.color);
-            p = '<p style="background:'+json.color+'">系统消息(时间：'+ json.time+ '): ' + json.text +' 进入客服</p>';
+            p = '<p style="background:'+json.color+'">系统消息(时间：'+ json.time+ '): ' + json.text +' 进入聊天室</p>';
         }else if(json.type == 'disconnect'){
-            p = '<p style="background:'+json.color+'">系统消息(时间：'+ json.time+ '): ' + json.text +' 离开客服</p>';
+            p = '<p style="background:'+json.color+'">系统消息(时间：'+ json.time+ '): ' + json.text +' 离开聊天室</p>';
         }
         content.prepend(p); 
     });
