@@ -5,6 +5,8 @@ var express = require('express')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
+
+//设置日志级别
 //设置日志级别
 io.set('log level', 1); 
 
